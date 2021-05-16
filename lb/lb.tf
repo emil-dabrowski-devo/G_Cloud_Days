@@ -41,7 +41,7 @@ module "gce-lb-http" {
   firewall_projects = [var.shared_vpc_project]
   firewall_networks = [module.vpc.network_name]
   ssl                  = true
-  ssl_certificates     = [google_compute_ssl_certificate.cloud_days.self_link]
+  ssl_certificates     = [google_compute_managed_ssl_certificate.cloud_days.self_link]
   use_ssl_certificates = true
   https_redirect       = true
 
