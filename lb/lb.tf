@@ -13,7 +13,7 @@ resource "google_compute_firewall" "allow-lb" {
 
 resource "google_compute_instance_group" "web_app" {
   name        = "web-app"
-  description = "Web-app instance group"
+  description = "Web-app unmanaged instance group"
   zone        = "${var.region}-b"
   project     = local.compute_project[1]
   instances = [google_compute_instance.web_app.id]
