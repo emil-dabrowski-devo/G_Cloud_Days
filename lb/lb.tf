@@ -25,6 +25,7 @@ resource "google_compute_instance_group" "web_app" {
 
 resource "google_compute_managed_ssl_certificate" "cloud_days" {
   name = "web-app-cert"
+  project = local.compute_project[1]
 
   managed {
     domains = ["cloud-days.appsdemo.se."]
@@ -39,6 +40,10 @@ module "gce-lb-http" {
   name              = "web-app-http-lb"
   firewall_projects = [var.shared_vpc_project]
   firewall_networks = [module.vpc.network_name]
+  ssl                  = true
+  ssl_certificates     = [google_compute_ssl_certificate.cloud_days.self_link]
+  use_ssl_certificates = true
+  https_redirect       = true
 
   backends = {
     default = {
