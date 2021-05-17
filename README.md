@@ -33,5 +33,10 @@ gcloud organizations add-iam-policy-binding $ORGANIZATION_ID --member='serviceAc
 * Download and install Terraform - use [link](https://www.terraform.io/downloads.html "Terraform")
 * clone this repo: 
 ```
-git clone 
+git clone https://github.com/emil-dabrowski-devo/G_Cloud_Days.git
+cd G_Cloud_Days
 ```
+* set variables in file terraform.tfvars (change required lines 1-4 and 6 if the terraform project id is different, rest parameters are optional) 
+
+
+## Step 1: Create resources (folders, projects, enable APIs)
