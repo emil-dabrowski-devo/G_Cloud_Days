@@ -44,7 +44,7 @@ module "gce-lb-http" {
   ssl_certificates     = [google_compute_managed_ssl_certificate.cloud_days.self_link]
   use_ssl_certificates = true
   create_url_map    = false
-  http_forward         = true
+  http_forward      = false
 
 
 
