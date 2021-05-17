@@ -30,10 +30,10 @@ resource "google_compute_organization_security_policy_rule" "policy" {
 
   direction = "INGRESS"
   enable_logging = true
+  target_service_accounts = ["custom-service-account@${local.compute_project[1]}.iam.gserviceaccount.com"]
   match {
     config {
       src_ip_ranges = ["10.0.0.0/8"]
-      target_service_accounts = ["custom-service-account@${local.compute_project[1]}.iam.gserviceaccount.com"]
       layer4_config {
         ip_protocol = "tcp"
         ports = ["80"]
