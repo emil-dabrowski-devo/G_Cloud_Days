@@ -30,7 +30,7 @@ gcloud organizations add-iam-policy-binding $ORGANIZATION_ID --member='serviceAc
   export KEY_FILE=$KEY_PATH/terraform-sa.json
   export GOOGLE_CREDENTIALS=$(cat $KEY_FILE | jq -c)
   ```
-* Download and install Terraform - use [link](https://www.terraform.io/downloads.html "Terraform")
+* Download and install Terraform - use [link](https://www.terraform.io/docs/cli/install/apt.html "Terraform")
 * clone this repo: 
 ```
 git clone https://github.com/emil-dabrowski-devo/G_Cloud_Days.git
