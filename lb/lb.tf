@@ -43,7 +43,7 @@ module "gce-lb-http" {
   ssl                  = true
   ssl_certificates     = [google_compute_managed_ssl_certificate.cloud_days.self_link]
   use_ssl_certificates = true
-  https_redirect       = true
+
 
   backends = {
     default = {
