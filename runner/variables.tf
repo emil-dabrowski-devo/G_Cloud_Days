@@ -29,6 +29,7 @@ variable "terraform_project" {
 
 variable "service_projects" {
   description = "List of service projects"
+  type = set(string)
   default = []
 }
 
