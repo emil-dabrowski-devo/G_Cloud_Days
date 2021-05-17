@@ -4,6 +4,12 @@ This repo contains terraform scripts for Google Cloud Approaches Security worksh
 
 ## Prerequesits
 
+* Install Google Cloud SDK use [link](https://cloud.google.com/sdk/docs/install "SDK")
+* Configure Google Cloud SDK using:
+```
+gcloud init
+```
+
 * Google Cloud Project for terraforming (adjust variable "terraform_project" - line 6 in terraform.tfvars file)
 * Service Account in terraforming project with proper rights on the organization level (you can add rights on the folder level - check documentation and adjust terraform scriipt). You can create it using:
 ```
@@ -53,8 +59,86 @@ you should copy two files: apis.tf and resources.tf
 * now run:
 ```
 terraform init
-terraform plan -var-file="../terraform.tfvars
-terraform apply -var-file="../terraform.tfvars
+terraform plan -var-file="../terraform.tfvars"
+terraform apply -var-file="../terraform.tfvars"
 ```
+## Step 2: Create Organizational Policies
+* You need to copy org-policies tf files to the runner folder:
+```
+cp ../org-policies/* .
+```
+you should copy one file: org-policies.tf
 
+* now run:
+```
+terraform init
+terraform plan -var-file="../terraform.tfvars"
+terraform apply -var-file="../terraform.tfvars"
+```
+## Step 3: Create network
+* You need to copy networking tf files to the runner folder:
+```
+cp ../networking/* .
+```
+you should copy two files: network.tf and firewall.tf
 
+* now run:
+```
+terraform init
+terraform plan -var-file="../terraform.tfvars"
+terraform apply -var-file="../terraform.tfvars"
+```
+## Step 4: Create Cloud NAT 
+* You need to copy nat tf files to the runner folder:
+```
+cp ../nat/* .
+```
+you should copy one file: nat.tf
+
+* now run:
+```
+terraform init
+terraform plan -var-file="../terraform.tfvars"
+terraform apply -var-file="../terraform.tfvars"
+```
+## Step 5: Create virtual machines
+* You need to copy vms tf files to the runner folder:
+```
+cp ../vms/* .
+```
+you should copy one file: compute.tf
+
+* now run:
+```
+terraform init
+terraform plan -var-file="../terraform.tfvars"
+terraform apply -var-file="../terraform.tfvars"
+```
+## Step 6: Create firewall policies
+* You need to copy allow-http tf files to the runner folder:
+```
+cp ../allow-http/* .
+```
+you should copy one file: allow-http.tf
+
+* now run:
+```
+terraform init
+terraform plan -var-file="../terraform.tfvars"
+terraform apply -var-file="../terraform.tfvars"
+```
+## Step 7: Create Load Balancer
+* You need to copy lb tf files to the runner folder:
+```
+cp ../lb/* .
+```
+you should copy one file: lb.tf
+
+* now run:
+```
+terraform init
+terraform plan -var-file="../terraform.tfvars"
+terraform apply -var-file="../terraform.tfvars"
+```
+## Next Steps
+Watch the recording to see how to use Cloud Armor, IAP, Logging and Monitoring, and SCC.
