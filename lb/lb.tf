@@ -28,7 +28,7 @@ resource "google_compute_managed_ssl_certificate" "cloud_days" {
   project = local.compute_project[1]
 
   managed {
-    domains = ["cloud-days.appsdemo.se."]
+    domains = ["cloud-days.${var.domain}."]
   }
 }
 
